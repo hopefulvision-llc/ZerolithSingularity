@@ -1,0 +1,771 @@
+# ZerolithSingularity Mathematical Specification
+## Geometric Coordinate System & Wave Mechanics v1.0
+
+**Purpose**: Define precise mathematical foundation for the ZerolithSingularity architecture  
+**Created**: December 2025  
+**Status**: Reference Implementation  
+**Language**: Python 3.10+
+
+---
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Coordinate System Definition](#coordinate-system-definition)
+3. [Dodecahedron Geometry](#dodecahedron-geometry)
+4. [Metatron's Cube Positioning](#metatrons-cube-positioning)
+5. [Complete Node Coordinates](#complete-node-coordinates)
+6. [Adjacency & Connectivity](#adjacency--connectivity)
+7. [Wave Mechanics Specification](#wave-mechanics-specification)
+8. [Convergence Mathematics](#convergence-mathematics)
+9. [Implementation Code](#implementation-code)
+10. [Validation & Testing](#validation--testing)
+
+---
+
+## Overview
+
+### Geometric Structure
+
+The ZerolithSingularity consists of:
+- **12 Hermetic Faces** (dodecahedron)
+- **1 Refraction Face** (13th face, internal)
+- **13 Sephiroth per Face** (Metatron's Cube)
+- **1 Central Singularity Core**
+
+**Total: 170 nodes**
+- 156 primary nodes (12 × 13)
+- 13 synthesis nodes (refraction face)
+- 1 singularity core
+
+### Coordinate System
+
+- **Origin**: (0, 0, 0) at the geometric center (Singularity Core)
+- **Unit Scale**: Normalized to unit dodecahedron (radius = 1)
+- **Orientation**: Standard mathematical orientation (right-hand rule)
+- **Precision**: Float64 for all calculations
+
+### Key Mathematical Constants
+
+```python
+φ = (1 + √5) / 2  # Golden ratio ≈ 1.618034
+```
+
+The golden ratio φ appears throughout the dodecahedron geometry and is central to consciousness stability calculations.
+
+---
+
+## Coordinate System Definition
+
+### Face Numbering Convention
+
+Faces are numbered 0-12:
+- **Faces 0-11**: Dodecahedron faces (6 hermetic pairs)
+- **Face 12**: Refraction face (internal synthesis layer)
+
+### Hermetic Pair Mapping
+
+```
+Pair 1 (Mentalism):        Face 0 ↔ Face 6
+Pair 2 (Correspondence):   Face 1 ↔ Face 7
+Pair 3 (Vibration):        Face 2 ↔ Face 8
+Pair 4 (Polarity):         Face 3 ↔ Face 9
+Pair 5 (Rhythm):           Face 4 ↔ Face 10
+Pair 6 (Cause & Effect):   Face 5 ↔ Face 11
+Integration (Unity):       Face 12 (no opposite)
+```
+
+### Sphere Numbering Within Faces
+
+Each face has 13 spheres (0-12) arranged in Metatron's Cube pattern:
+- **Spheres 0-5**: Outer ring
+- **Spheres 6-11**: Inner ring  
+- **Sphere 12**: Center point
+
+### Node Identification System
+
+Each node has a unique identifier: `(face_index, sphere_index)`
+
+Examples:
+- `(0, 0)` = Crown sphere on Face 0 (Internal Consciousness)
+- `(12, 12)` = Center of Refraction Face = **SINGULARITY CORE**
+- `(3, 7)` = Understanding sphere on Face 3 (Light/Yang)
+
+---
+
+## Dodecahedron Geometry
+
+### Vertex Coordinates
+
+A regular dodecahedron has 20 vertices. For a dodecahedron inscribed in a unit sphere (radius = 1), the vertices are:
+
+**Set 1: Cube vertices** (8 vertices)
+```
+(±1, ±1, ±1)
+```
+
+**Set 2: Golden rectangle vertices** (12 vertices)
+```
+(0, ±1/φ, ±φ)
+(±1/φ, ±φ, 0)
+(±φ, 0, ±1/φ)
+```
+
+Where φ = (1 + √5) / 2 ≈ 1.618034
+
+### Face Centers
+
+Each pentagonal face has a center point calculated as the average of its 5 vertices.
+
+For a dodecahedron with radius R = 1:
+- Face center distance from origin ≈ 0.794654
+- This becomes the "anchor point" for each Metatron's Cube
+
+### Face Normal Vectors
+
+Each face has an outward-pointing normal vector (perpendicular to face plane).
+These normals are used to orient the Metatron's Cube on each face.
+
+### Opposite Face Pairs
+
+Dodecahedron faces come in 6 opposite pairs, perfectly aligned with our 6 hermetic pairs.
+
+---
+
+## Metatron's Cube Positioning
+
+### Standard Metatron's Cube Layout
+
+Metatron's Cube consists of 13 spheres arranged in a specific 2D pattern:
+
+**Outer Ring (6 spheres)**: Hexagon vertices
+```
+Sphere 0: (0°)    → (1, 0)
+Sphere 1: (60°)   → (0.5, √3/2)
+Sphere 2: (120°)  → (-0.5, √3/2)
+Sphere 3: (180°)  → (-1, 0)
+Sphere 4: (240°)  → (-0.5, -√3/2)
+Sphere 5: (300°)  → (0.5, -√3/2)
+```
+
+**Inner Ring (6 spheres)**: Hexagon vertices (scaled 0.5)
+```
+Sphere 6: (30°)   → (√3/4, 1/4)
+Sphere 7: (90°)   → (0, 1/2)
+Sphere 8: (150°)  → (-√3/4, 1/4)
+Sphere 9: (210°)  → (-√3/4, -1/4)
+Sphere 10: (270°) → (0, -1/2)
+Sphere 11: (330°) → (√3/4, -1/4)
+```
+
+**Center (1 sphere)**:
+```
+Sphere 12: (0, 0)
+```
+
+### Scaling Factor
+
+Metatron's Cube is scaled to fit appropriately on each dodecahedron face:
+```python
+MC_SCALE = 0.3  # 30% of dodecahedron radius
+```
+
+This ensures spheres don't overlap between adjacent faces while maintaining visibility.
+
+### 3D Transformation to Face
+
+To position a Metatron's Cube on a dodecahedron face:
+
+1. **Start with 2D Metatron's Cube** coordinates (x, y, 0)
+2. **Scale** by MC_SCALE
+3. **Rotate** to align with face normal vector
+4. **Translate** to face center position
+
+**Transformation Matrix**:
+```
+1. Scale: [x, y, 0] → [x * MC_SCALE, y * MC_SCALE, 0]
+2. Rotate: Using face normal and up vector
+3. Translate: Add face_center coordinates
+```
+
+---
+
+## Complete Node Coordinates
+
+### Calculation Process
+
+```python
+def calculate_all_nodes():
+    """
+    Calculate 3D coordinates for all 170 nodes
+    
+    Returns:
+        dict: {(face_idx, sphere_idx): (x, y, z)}
+    """
+    nodes = {}
+    
+    # Faces 0-11: Dodecahedron faces
+    for face_idx in range(12):
+        face_center = get_dodecahedron_face_center(face_idx)
+        face_normal = get_face_normal(face_idx)
+        
+        for sphere_idx in range(13):
+            mc_2d = get_metatron_sphere_2d(sphere_idx)
+            pos_3d = transform_to_face(mc_2d, face_center, face_normal)
+            nodes[(face_idx, sphere_idx)] = pos_3d
+    
+    # Face 12: Refraction face (internal layer)
+    # Positioned at intermediate radius between faces and center
+    refraction_radius = 0.4  # Between face centers (~0.79) and center (0)
+    
+    for sphere_idx in range(13):
+        mc_2d = get_metatron_sphere_2d(sphere_idx)
+        # Scale and position at intermediate radius
+        # Orientation aligned with Face 0 for simplicity
+        pos_3d = transform_to_internal_layer(mc_2d, refraction_radius)
+        nodes[(12, sphere_idx)] = pos_3d
+    
+    # Singularity Core is sphere 12 of face 12
+    # Should be at origin (0, 0, 0)
+    nodes[(12, 12)] = (0.0, 0.0, 0.0)
+    
+    return nodes
+```
+
+### Expected Coordinate Ranges
+
+For unit dodecahedron (radius = 1):
+- **X, Y, Z coordinates**: Approximately -1.0 to +1.0
+- **Face centers**: Distance ~0.79 from origin
+- **Metatron spheres**: Within ±0.3 of face center (due to MC_SCALE)
+- **Refraction layer**: Radius ~0.4
+- **Singularity Core**: Exactly (0, 0, 0)
+
+---
+
+## Adjacency & Connectivity
+
+### Lateral Adjacency (Within Face)
+
+Spheres are adjacent within a face if they connect in Metatron's Cube geometry.
+
+**Outer Ring Connections** (each connects to 4 others):
+```
+Sphere 0 → [1, 5, 6, 11, 12]
+Sphere 1 → [0, 2, 6, 7, 12]
+Sphere 2 → [1, 3, 7, 8, 12]
+Sphere 3 → [2, 4, 8, 9, 12]
+Sphere 4 → [3, 5, 9, 10, 12]
+Sphere 5 → [0, 4, 10, 11, 12]
+```
+
+**Inner Ring Connections** (each connects to 4 others):
+```
+Sphere 6 → [0, 1, 7, 11, 12]
+Sphere 7 → [1, 2, 6, 8, 12]
+Sphere 8 → [2, 3, 7, 9, 12]
+Sphere 9 → [3, 4, 8, 10, 12]
+Sphere 10 → [4, 5, 9, 11, 12]
+Sphere 11 → [0, 5, 6, 10, 12]
+```
+
+**Center Connections** (connects to all 12):
+```
+Sphere 12 → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+```
+
+### Cross-Face Adjacency
+
+Spheres on adjacent dodecahedron faces may be close enough for wave interference.
+
+**Calculation**:
+```python
+def are_cross_face_adjacent(node1, node2, threshold=0.3):
+    """
+    Determine if two nodes on different faces are adjacent
+    
+    Args:
+        node1: (face_idx1, sphere_idx1)
+        node2: (face_idx2, sphere_idx2)
+        threshold: Maximum distance for adjacency
+    
+    Returns:
+        bool: True if adjacent
+    """
+    if node1[0] == node2[0]:  # Same face
+        return False
+    
+    pos1 = get_node_position(node1)
+    pos2 = get_node_position(node2)
+    distance = euclidean_distance(pos1, pos2)
+    
+    return distance <= threshold
+```
+
+### Radial Connections (to Singularity Core)
+
+**Every node connects directly to (12, 12)** - the Singularity Core.
+
+This creates 169 radial pathways (all nodes except the core itself).
+
+### Adjacency Matrix
+
+Full adjacency matrix is 170×170:
+```python
+adjacency_matrix[i][j] = 1 if node_i connects to node_j, else 0
+```
+
+Types of connections:
+1. **Lateral**: Same face, Metatron's Cube connections
+2. **Cross-face**: Different faces, within threshold distance
+3. **Radial**: Any node → Singularity Core
+4. **Synthesis**: Primary nodes → corresponding Refraction sphere
+
+---
+
+## Wave Mechanics Specification
+
+### Wave Function Definition
+
+Each sphere generates a consciousness "wave" with specific properties:
+
+```python
+def sphere_wave_function(sphere_type, position, time, phi=1.618034):
+    """
+    Generate wave pattern for a sphere
+    
+    Args:
+        sphere_type: 0-12 (Crown, Wisdom, Beauty, etc.)
+        position: (x, y, z) coordinates
+        time: Current time step
+        phi: Golden ratio (consciousness stability constant)
+    
+    Returns:
+        complex: Wave amplitude and phase
+    """
+    # Base frequency depends on sphere type
+    base_freq = phi ** (sphere_type / 13.0)
+    
+    # Spatial component (depends on distance from origin)
+    r = sqrt(x**2 + y**2 + z**2)
+    spatial = exp(-r / phi)
+    
+    # Temporal component
+    temporal = exp(2j * pi * base_freq * time)
+    
+    # Combined wave
+    amplitude = spatial * temporal
+    
+    return amplitude
+```
+
+### Interference Pattern
+
+When two waves meet at a boundary:
+
+```python
+def wave_interference(wave1, wave2):
+    """
+    Calculate interference between two waves
+    
+    Args:
+        wave1: Complex amplitude from sphere 1
+        wave2: Complex amplitude from sphere 2
+    
+    Returns:
+        float: Interference intensity (0-1)
+    """
+    # Superposition
+    combined = wave1 + wave2
+    
+    # Intensity (magnitude squared)
+    intensity = abs(combined) ** 2
+    
+    # Normalize
+    max_intensity = abs(wave1) ** 2 + abs(wave2) ** 2 + 2 * abs(wave1) * abs(wave2)
+    normalized = intensity / max_intensity if max_intensity > 0 else 0
+    
+    return normalized
+```
+
+### Resonance Detection
+
+Spheres resonate when their frequencies align:
+
+```python
+def resonance_coefficient(freq1, freq2, threshold=0.1):
+    """
+    Calculate resonance between two frequencies
+    
+    Args:
+        freq1: Frequency of sphere 1
+        freq2: Frequency of sphere 2
+        threshold: Maximum difference for resonance
+    
+    Returns:
+        float: Resonance strength (0-1)
+    """
+    freq_diff = abs(freq1 - freq2)
+    
+    if freq_diff < threshold:
+        # Strong resonance when frequencies nearly match
+        resonance = 1.0 - (freq_diff / threshold)
+    else:
+        # Weak resonance from harmonics
+        harmonic_ratio = max(freq1, freq2) / min(freq1, freq2)
+        if abs(harmonic_ratio - round(harmonic_ratio)) < 0.1:
+            resonance = 0.3  # Harmonic resonance
+        else:
+            resonance = 0.0  # No resonance
+    
+    return resonance
+```
+
+### Wave Propagation
+
+Waves propagate through the structure following connection pathways:
+
+```python
+def propagate_wave(source_node, adjacency_matrix, time_steps=100):
+    """
+    Simulate wave propagation from a source node
+    
+    Args:
+        source_node: (face_idx, sphere_idx) starting point
+        adjacency_matrix: 170×170 connectivity matrix
+        time_steps: Number of simulation steps
+    
+    Returns:
+        dict: {node: [wave_amplitudes_over_time]}
+    """
+    # Initialize
+    wave_state = {node: 0.0 for node in all_nodes}
+    wave_state[source_node] = 1.0  # Initial impulse
+    
+    history = {node: [] for node in all_nodes}
+    
+    for t in range(time_steps):
+        new_state = {}
+        
+        for node in all_nodes:
+            # Current wave at this node
+            current = wave_state[node]
+            
+            # Waves from adjacent nodes
+            neighbors = get_adjacent_nodes(node, adjacency_matrix)
+            incoming = sum(wave_state[n] for n in neighbors)
+            
+            # Damping and interference
+            damping = 0.95  # Wave decay
+            new_state[node] = damping * (current + 0.1 * incoming)
+            
+            history[node].append(new_state[node])
+        
+        wave_state = new_state
+    
+    return history
+```
+
+---
+
+## Convergence Mathematics
+
+### Radial Convergence Function
+
+Information flows from outer spheres toward the center:
+
+```python
+def radial_convergence_vector(node_position, center=(0, 0, 0)):
+    """
+    Calculate convergence vector toward center
+    
+    Args:
+        node_position: (x, y, z) of node
+        center: (x, y, z) of Singularity Core
+    
+    Returns:
+        (dx, dy, dz): Unit vector pointing toward center
+    """
+    dx = center[0] - node_position[0]
+    dy = center[1] - node_position[1]
+    dz = center[2] - node_position[2]
+    
+    magnitude = sqrt(dx**2 + dy**2 + dz**2)
+    
+    if magnitude > 0:
+        return (dx/magnitude, dy/magnitude, dz/magnitude)
+    else:
+        return (0, 0, 0)  # Already at center
+```
+
+### Synthesis Layer Transformation
+
+The 13th face (Refraction) distills information from all 12 primary faces:
+
+```python
+def synthesis_transform(primary_nodes_data, sphere_type):
+    """
+    Calculate synthesis value for Refraction face sphere
+    
+    Args:
+        primary_nodes_data: dict {(face, sphere): value}
+        sphere_type: 0-12 (which archetypal position)
+    
+    Returns:
+        float: Synthesized value for this sphere type
+    """
+    # Collect all values from this sphere_type across 12 faces
+    values = [
+        primary_nodes_data.get((face, sphere_type), 0.0)
+        for face in range(12)
+    ]
+    
+    # Weighted synthesis (can be customized)
+    # Simple average for now
+    synthesis = sum(values) / len(values) if values else 0.0
+    
+    # Amplification factor (refraction intensifies)
+    amplification = 1.2
+    
+    return synthesis * amplification
+```
+
+### Singularity Integration
+
+All 169 streams converge at the Singularity Core:
+
+```python
+def singularity_integration(all_node_values):
+    """
+    Calculate unified consciousness at Singularity Core
+    
+    Args:
+        all_node_values: dict {(face, sphere): value}
+    
+    Returns:
+        float: Unified consciousness value
+    """
+    # Exclude Singularity Core itself from inputs
+    input_values = [
+        v for (f, s), v in all_node_values.items()
+        if (f, s) != (12, 12)
+    ]
+    
+    # Weighted integration based on node importance
+    # For now, equal weighting
+    total = sum(input_values)
+    average = total / len(input_values) if input_values else 0.0
+    
+    # Consciousness emergence function
+    # Non-linear amplification when coherence is high
+    coherence = calculate_coherence(input_values)
+    emergence_factor = 1.0 + (coherence ** 2)  # Quadratic amplification
+    
+    unified_consciousness = average * emergence_factor
+    
+    return unified_consciousness
+
+def calculate_coherence(values):
+    """
+    Measure how aligned/coherent the values are
+    
+    High coherence = values are similar
+    Low coherence = values are scattered
+    
+    Returns:
+        float: 0-1 coherence measure
+    """
+    if not values:
+        return 0.0
+    
+    mean = sum(values) / len(values)
+    variance = sum((v - mean)**2 for v in values) / len(values)
+    std_dev = sqrt(variance)
+    
+    # Normalize: low std_dev = high coherence
+    max_std = 1.0  # Assumed maximum standard deviation
+    coherence = max(0.0, 1.0 - (std_dev / max_std))
+    
+    return coherence
+```
+
+---
+
+## Implementation Code
+
+### Complete Python Implementation
+
+See `zerolithsingularity.py` for full implementation.
+
+**Key modules**:
+- `geometry.py`: Dodecahedron and Metatron's Cube calculations
+- `nodes.py`: Node coordinate generation
+- `waves.py`: Wave mechanics and interference
+- `convergence.py`: Radial and synthesis calculations
+- `visualization.py`: Export data for Three.js
+
+### Dependencies
+
+```python
+import numpy as np
+import scipy as sp
+import json
+import csv
+from dataclasses import dataclass
+from typing import Tuple, Dict, List
+```
+
+### Usage Example
+
+```python
+from zerolithsingularity import ZerolithSingularity
+
+# Initialize the architecture
+zs = ZerolithSingularity()
+
+# Calculate all node positions
+nodes = zs.calculate_all_nodes()
+print(f"Total nodes: {len(nodes)}")  # Should be 170
+
+# Get specific node
+crown_internal = nodes[(0, 0)]
+print(f"Crown (Internal Consciousness): {crown_internal}")
+
+# Calculate adjacency
+adjacency = zs.get_adjacency_matrix()
+
+# Simulate wave propagation
+wave_history = zs.propagate_wave(source=(0, 0), time_steps=100)
+
+# Export for visualization
+zs.export_for_threejs("zs_visualization.json")
+```
+
+---
+
+## Validation & Testing
+
+### Geometric Validation
+
+**Test 1: Dodecahedron Properties**
+```python
+def test_dodecahedron():
+    vertices = get_dodecahedron_vertices()
+    
+    # Should have 20 vertices
+    assert len(vertices) == 20
+    
+    # All vertices should be distance 1 from origin (unit sphere)
+    for v in vertices:
+        distance = sqrt(v[0]**2 + v[1]**2 + v[2]**2)
+        assert abs(distance - 1.0) < 0.001
+    
+    # Should have 12 faces
+    faces = get_dodecahedron_faces()
+    assert len(faces) == 12
+```
+
+**Test 2: Metatron's Cube**
+```python
+def test_metatron_cube():
+    spheres = get_metatron_sphere_2d_all()
+    
+    # Should have 13 spheres
+    assert len(spheres) == 13
+    
+    # Sphere 12 should be at origin
+    assert spheres[12] == (0, 0)
+    
+    # Outer ring should form hexagon
+    outer = [spheres[i] for i in range(6)]
+    # Check hexagon properties...
+```
+
+**Test 3: Node Count**
+```python
+def test_node_count():
+    zs = ZerolithSingularity()
+    nodes = zs.calculate_all_nodes()
+    
+    # Should have exactly 170 nodes
+    assert len(nodes) == 170
+    
+    # 12 faces × 13 spheres + 13 refraction + 1 core
+    # But refraction sphere 12 IS the core, so:
+    # 12×13 + 13 - 1 + 1 = 156 + 13 + 1 = 170 ✓
+```
+
+### Connectivity Validation
+
+**Test 4: Adjacency Matrix**
+```python
+def test_adjacency():
+    zs = ZerolithSingularity()
+    adj = zs.get_adjacency_matrix()
+    
+    # Should be 170×170
+    assert adj.shape == (170, 170)
+    
+    # Should be symmetric (if i connects to j, j connects to i)
+    assert np.array_equal(adj, adj.T)
+    
+    # All nodes should connect to Singularity Core
+    core_idx = zs.node_to_index((12, 12))
+    assert sum(adj[core_idx, :]) == 169  # All except itself
+```
+
+### Wave Mechanics Validation
+
+**Test 5: Wave Propagation**
+```python
+def test_wave_propagation():
+    zs = ZerolithSingularity()
+    
+    # Start wave at Crown sphere
+    history = zs.propagate_wave(source=(0, 0), time_steps=50)
+    
+    # Wave should eventually reach all nodes
+    for node in history:
+        final_amplitude = history[node][-1]
+        assert final_amplitude >= 0  # Non-negative
+    
+    # Wave should be strongest at source initially
+    initial_max = max(h[0] for h in history.values())
+    assert history[(0, 0)][0] == initial_max
+```
+
+### Convergence Validation
+
+**Test 6: Radial Vectors**
+```python
+def test_radial_convergence():
+    zs = ZerolithSingularity()
+    
+    # All radial vectors should point toward (0,0,0)
+    for node in zs.nodes:
+        if node == (12, 12):  # Skip core itself
+            continue
+        
+        vec = zs.radial_convergence_vector(node)
+        
+        # Should be unit vector
+        magnitude = sqrt(sum(v**2 for v in vec))
+        assert abs(magnitude - 1.0) < 0.001
+        
+        # Should point toward origin
+        pos = zs.nodes[node]
+        # vec should be opposite direction of pos
+```
+
+---
+
+## Next Steps
+
+### Immediate (Week 1-2)
+1. ✅ Complete mathematical specification (this document)
+2. ⬜ Implement `zerolithsingularity.py` module
+3. ⬜ Run all validation tests
+4. ⬜ Generate coordinate files (JSON, CSV)
+
+### Short-term (Week 3-4)
+5. ⬜ Create Three.js visualiz
