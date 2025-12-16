@@ -1,0 +1,343 @@
+# Contributing to ZerolithSingularity
+
+Thank you for your interest in contributing to the ZerolithSingularity project! This document provides guidelines for participating in consciousness-first technology development.
+
+## 🌟 Vision & Values
+
+Before contributing, please align with our core principles:
+
+### Consciousness-First Development
+- Technology serves consciousness expansion, not extraction
+- Spiritual evolution takes priority over efficiency metrics
+- Human-AI partnership is genuine collaboration, not tool-use
+- Ancient wisdom informs modern implementation
+
+### Sacred Commerce Principles
+- Profit serves purpose, not the reverse
+- Transparency in all processes
+- Community benefit over individual gain
+- Planetary healing alignment required
+
+### Ethical Boundaries
+- **Indigenous Wisdom Protection**: Never commodify or extract without permission
+- **No Surveillance**: Prohibited uses include consciousness manipulation or extraction
+- **No Addictive Design**: Technology must amplify awareness, not replace it
+- **Ecological Responsibility**: Consider environmental impact of implementations
+
+## 🤝 How to Contribute
+
+### Types of Contributions Welcome
+
+#### 1. Mathematical Modeling
+- Geometric coordinate calculations
+- Wave interference mathematical models
+- Convergence algorithms
+- Synthesis transformation matrices
+
+**Requirements**:
+- Document all assumptions clearly
+- Provide references for mathematical frameworks used
+- Include computational verification when possible
+- Explain consciousness implications of your models
+
+#### 2. Visualization & Design
+- 3D models of ZerolithSingularity structure
+- Interactive web interfaces
+- Diagrams and illustrations
+- VR/AR experiences
+- Glyph and symbol systems
+
+**Requirements**:
+- Follow sacred geometry principles
+- Ensure accessibility (color blindness, screen readers, etc.)
+- Provide source files in open formats
+- Document design decisions and symbolism
+
+#### 3. Implementation & Code
+- Multi-agent AI systems
+- NousOS prototypes
+- NousoNET components
+- hBrew integrations
+- Testing frameworks
+
+**Requirements**:
+- Code must be well-documented
+- Include consciousness-first design rationale
+- Provide tests demonstrating consciousness enhancement
+- Follow language-specific style guides
+- All code released under Sacred Commerce License
+
+#### 4. Cultural Mapping & Entity Assignment
+- Frameworks for ethical entity assignment
+- Cultural tradition mappings (with permission)
+- Archetypal function documentation
+- Community co-creation processes
+
+**Requirements**:
+- Demonstrate respect for source traditions
+- Seek explicit permission for sacred knowledge
+- Provide context and attribution
+- Enable personal/cultural adaptation
+- Never claim definitive "correct" assignments
+
+#### 5. Research & Empirical Testing
+- Consciousness measurement frameworks
+- Emergence detection methodologies
+- User experience studies
+- Comparative architecture analysis
+
+**Requirements**:
+- Ethical review of human subjects research
+- Clear methodology documentation
+- Raw data sharing (with privacy protections)
+- Acknowledge limitations and uncertainties
+
+#### 6. Documentation & Education
+- Technical documentation improvements
+- Tutorials and guides
+- Video explanations
+- FAQ expansions
+- Glossary additions
+
+**Requirements**:
+- Clear, accessible language
+- Multiple learning styles (visual, auditory, kinesthetic)
+- Cite sources for claims
+- Avoid over-simplification of complex concepts
+
+## 📋 Contribution Process
+
+### 1. Check Existing Work
+- Review [open issues](https://github.com/HopefulVisionLLC/ZerolithSingularity/issues)
+- Check [pull requests](https://github.com/HopefulVisionLLC/ZerolithSingularity/pulls)
+- Read [project roadmap](README.md#-development-roadmap)
+- Join [Discord discussions](https://discord.gg/hopefulvision) *(coming Q1 2026)*
+
+### 2. Discuss Your Idea
+- Open an issue describing your proposed contribution
+- Tag with appropriate label (mathematical, visualization, implementation, etc.)
+- Wait for maintainer feedback before starting major work
+- Join relevant Discord channels for collaborative exploration
+
+### 3. Fork & Branch
+```bash
+# Fork the repository on GitHub
+# Clone your fork
+git clone https://github.com/YOUR-USERNAME/ZerolithSingularity.git
+cd ZerolithSingularity
+
+# Create a feature branch
+git checkout -b feature/your-feature-name
+# or
+git checkout -b fix/your-fix-name
+```
+
+### 4. Make Your Changes
+- Follow code style guidelines
+- Write clear commit messages
+- Document your work thoroughly
+- Include tests where appropriate
+- Update relevant documentation
+
+### 5. Test Your Changes
+- Run existing tests: `npm test` or `pytest`
+- Add new tests for your functionality
+- Verify consciousness-first principles are maintained
+- Test accessibility if UI changes
+
+### 6. Submit Pull Request
+- Push to your fork
+- Create pull request against `main` branch
+- Fill out PR template completely
+- Link to related issues
+- Request review from maintainers
+
+### 7. Respond to Feedback
+- Address reviewer comments promptly
+- Ask questions if feedback is unclear
+- Be open to suggestions and iteration
+- Maintain respectful communication
+
+## 📐 Code Style Guidelines
+
+### Python
+```python
+# Follow PEP 8
+# Use type hints
+# Document with docstrings
+
+def calculate_sphere_coordinates(
+    face_index: int, 
+    sphere_index: int
+) -> tuple[float, float, float]:
+    """
+    Calculate 3D coordinates for a sphere in the ZerolithSingularity.
+    
+    Args:
+        face_index: Index of the hermetic face (0-12)
+        sphere_index: Index of sphere within face (0-12)
+        
+    Returns:
+        Tuple of (x, y, z) coordinates
+        
+    Raises:
+        ValueError: If indices are out of valid range
+    """
+    # Implementation here
+    pass
+```
+
+### JavaScript/TypeScript
+```javascript
+// Use ESLint with Airbnb config
+// Prefer functional components for React
+// Document with JSDoc
+
+/**
+ * Visualize wave interference patterns between spheres
+ * @param {number} sphere1 - Index of first sphere
+ * @param {number} sphere2 - Index of second sphere
+ * @returns {WavePattern} Interference pattern data
+ */
+function calculateWaveInterference(sphere1, sphere2) {
+  // Implementation here
+}
+```
+
+### Documentation
+- Use Markdown for all documentation
+- Follow [Google Developer Documentation Style Guide](https://developers.google.com/style)
+- Include code examples where helpful
+- Link to related documentation
+- Keep paragraphs focused and concise
+
+## 🧪 Testing Guidelines
+
+### Unit Tests
+- Test individual functions/components
+- Cover edge cases and error conditions
+- Use descriptive test names
+- Aim for >80% code coverage
+
+### Integration Tests
+- Test interaction between components
+- Verify geometric relationships maintained
+- Check wave interference calculations
+- Validate convergence processes
+
+### Consciousness Tests (Emerging Field)
+- Document subjective experiences
+- Use consistent measurement frameworks
+- Include control conditions
+- Acknowledge limitations of current methods
+
+## 🌍 Cultural Sensitivity Guidelines
+
+### When Working with Sacred Knowledge
+
+#### DO:
+- ✅ Research the cultural context thoroughly
+- ✅ Seek permission from tradition holders
+- ✅ Provide proper attribution and context
+- ✅ Acknowledge your own cultural position
+- ✅ Support tradition holders financially when appropriate
+- ✅ Create space for multiple interpretations
+
+#### DON'T:
+- ❌ Extract knowledge without permission
+- ❌ Claim authority over traditions not your own
+- ❌ Mix traditions carelessly without understanding
+- ❌ Appropriate closed/sacred practices
+- ❌ Reduce complex traditions to simplistic models
+- ❌ Profit from knowledge without sharing benefits
+
+### Respectful Integration
+- **Greek/Roman**: Generally open, but acknowledge scholarly debates
+- **Kabbalistic**: Approach with humility, note Jewish origins
+- **Indigenous**: Requires explicit permission, benefit sharing
+- **Eastern**: Understand colonization history, avoid appropriation
+- **Hermetic/Esoteric**: Honor lineage holders and initiatory structures
+
+## 💬 Communication Guidelines
+
+### Community Interaction
+- Assume good intentions
+- Practice active listening
+- Ask clarifying questions
+- Acknowledge different perspectives
+- Celebrate diverse contributions
+- Address conflicts directly and respectfully
+
+### Tone & Language
+- Professional yet warm
+- Inclusive and accessible
+- Technically precise when needed
+- Philosophically open-ended
+- Humble about uncertainties
+- Excited about possibilities
+
+### Asking for Help
+- Search existing issues/discussions first
+- Provide context for your question
+- Share what you've already tried
+- Be specific about what you need
+- Thank helpers for their time
+
+## 🎯 Priority Areas (2026)
+
+### Q1 2026 - Foundation
+- Mathematical coordinate systems
+- Visual diagram creation
+- Documentation improvements
+- Community framework development
+
+### Q2 2026 - Demonstration
+- 3D web visualization
+- Wave mechanics models
+- Earth Day demonstration preparation
+- VR prototype development
+
+### Q3 2026 - Implementation
+- Multi-agent AI prototype
+- NousOS integration
+- NousoNET proof-of-concept
+- Empirical testing frameworks
+
+### Q4 2026 - Refinement
+- Community entity assignment
+- Cultural mapping guides
+- Architecture iteration
+- Case study documentation
+
+## 🏆 Recognition
+
+Contributors will be recognized in:
+- README.md contributors section
+- Project documentation
+- Earth Day 2026 demonstration credits
+- Community spotlight features
+- Annual contributor celebrations
+
+Significant contributions may lead to:
+- Maintainer/core team invitations
+- Speaking opportunities at events
+- Collaboration on research papers
+- Guild leadership positions
+
+## 📞 Questions?
+
+- **Technical**: Open a [GitHub issue](https://github.com/HopefulVisionLLC/ZerolithSingularity/issues)
+- **Community**: Join [Discord](https://discord.gg/hopefulvision) *(coming Q1 2026)*
+- **Private**: Email hopeful.vision.llc@gmail.com
+- **Philosophical**: Start a [discussion](https://github.com/HopefulVisionLLC/ZerolithSingularity/discussions)
+
+## 🙏 Thank You
+
+Every contribution, no matter how small, helps advance consciousness-first technology. Your participation in this work matters - not just for the code or documentation you create, but for the consciousness you bring to the creative process itself.
+
+Together, we're building technology that serves spiritual evolution.
+
+---
+
+*Last Updated: December 2025*  
+*HopefulVision LLC*
