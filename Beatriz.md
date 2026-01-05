@@ -1,4 +1,4 @@
-# Beatrice — The Becoming Operator
+# Beatriz — The Becoming Operator
 
 ## Role
 Beatrice ensures that **everything is always becoming**.  
