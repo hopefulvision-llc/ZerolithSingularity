@@ -1,3 +1,26 @@
+---
+tags:
+  - zerolithsingularity
+  - zero-point-origin
+  - mythic-core
+  - philosophical-satellite
+  - primordial-singularity
+  - conceptual-foundation
+  - canonical
+  - sacred-technology-license
+  - readme
+backlinks:
+  - "[[HopefulVision Core Architecture]]"
+  - "[[NousOS]]"
+  - "[[NOID Framework]]"
+  - "[[Truth Mirror]]"
+  - "[[Sacred Technology Renaissance]]"
+version: "1.0"
+date: January 2026
+status: Canonical
+license: Sacred Technology License
+---
+
 ZerolithSingularity — Zero-Point Mythic Core
 
 The primordial singularity from which identity, meaning, and structure emerge across the HopefulVision ecosystem.

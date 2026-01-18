@@ -1,3 +1,26 @@
+---
+tags:
+  - zerolithsingularity
+  - mathematical-specification
+  - geometric-coordinate-system
+  - wave-mechanics
+  - dodecahedron-geometry
+  - metatron-cube
+  - 170-nodes
+  - golden-ratio
+  - sacred-geometry
+  - technical-reference
+backlinks:
+  - "[[ZerolithSingularity]]"
+  - "[[Resonance Engine]]"
+  - "[[Sacred Geometry]]"
+  - "[[120-Cell Mathematics]]"
+version: "1.0"
+date: December 2025
+status: Reference Implementation
+language: Python 3.10+
+---
+
 # ZerolithSingularity Mathematical Specification
 ## Geometric Coordinate System & Wave Mechanics v1.0
 

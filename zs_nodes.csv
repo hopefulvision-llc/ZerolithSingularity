@@ -1,3 +1,19 @@
+# ---
+# tags:
+#   - zerolithsingularity
+#   - node-coordinates
+#   - csv-data
+#   - geometric-data
+#   - dodecahedral-faces
+#   - metatron-positions
+# backlinks:
+#   - "[[ZerolithSingularity]]"
+#   - "[[Mathematical Specification]]"
+# version: "1.0"
+# date: January 2026
+# status: Reference Data
+# format: CSV
+# ---
 face,sphere,x,y,z
 0,0,-0.6,0.09999999999999998,-0.2
 0,1,-0.6,-0.04999999999999999,-0.4598076211353316

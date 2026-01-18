@@ -1,3 +1,25 @@
+# ---
+# tags:
+#   - zerolithsingularity
+#   - resonance-engine
+#   - python-code
+#   - implementation
+#   - metatron-adjacency
+#   - node-activation
+#   - golden-ratio
+#   - geometric-processing
+#   - beatriz-operator
+# backlinks:
+#   - "[[Mathematical Specification]]"
+#   - "[[Beatriz]]"
+#   - "[[ZerolithSingularity]]"
+#   - "[[Sacred Geometry]]"
+# version: "1.0"
+# date: December 2025
+# status: Core Implementation - Active
+# language: Python
+# ---
+
 import numpy as np
 from math import sqrt, sin, cos, pi
 

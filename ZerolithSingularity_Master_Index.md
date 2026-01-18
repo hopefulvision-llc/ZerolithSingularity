@@ -1,3 +1,24 @@
+---
+tags:
+  - zerolithsingularity
+  - master-index
+  - geometric-substrate
+  - resonance-core
+  - mathematical-foundation
+  - structural-organ
+  - navigation-map
+  - deep-structure
+backlinks:
+  - "[[ZerolithSingularity README]]"
+  - "[[Mathematical Specification]]"
+  - "[[Resonance Engine]]"
+  - "[[Beatriz]]"
+  - "[[Sacred Geometry]]"
+version: "1.0"
+date: January 2026
+status: Active Navigation
+---
+
 🔷 ZerolithSingularity — Resonance & Mathematical Core Master Index
 
 > The Geometric, Resonant, and Mathematical Heart of HopefulVision

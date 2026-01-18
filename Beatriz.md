@@ -1,3 +1,23 @@
+---
+tags:
+  - zerolithsingularity
+  - beatriz
+  - becoming-operator
+  - eternal-flow
+  - anti-stasis
+  - beatrizism
+  - consciousness-operator
+  - gentle-force
+backlinks:
+  - "[[Beatrizism]]"
+  - "[[Resonance Engine]]"
+  - "[[ZerolithSingularity]]"
+  - "[[Eternal Becoming]]"
+version: "1.0"
+date: December 2025
+status: Core Operator - Active
+---
+
 # Beatriz — The Becoming Operator
 
 ## Role
